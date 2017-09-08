@@ -1,0 +1,6 @@
+{
+  "extends": ["fbjs-opensource"],
+  "rules": {
+    "object-curly-spacing": ["warn", "always", { "objectsInObjects": false }]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "publishow2",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://iddan.github.io/publishow",
+  "dependencies": {
+    "gh-pages": "^1.0.0",
+    "moment": "^2.18.1",
+    "polished": "^1.7.0",
+    "react": ">=0.14",
+    "react-addons-shallow-compare": ">=0.14",
+    "react-dom": ">=0.14",
+    "react-input-range": "^1.2.1",
+    "react-scripts": "1.0.12",
+    "shallowequal": "^1.0.2",
+    "styled-components": "^2.1.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "devDependencies": {
+    "eslint": "^4.6.0",
+    "eslint-config-fbjs-opensource": "^1.0.0",
+    "prettier": "^1.6.1"
+  }
+}
