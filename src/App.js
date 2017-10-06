@@ -5,6 +5,8 @@ import head from 'lodash/fp/head';
 import update from 'lodash/fp/update';
 import map from 'lodash/fp/map';
 import find from 'lodash/fp/find';
+import flow from 'lodash/fp/flow';
+import get from 'lodash/fp/get';
 import WordPress from './WordPress';
 import * as theme from './theme';
 import FilterItem from './FilterItem';
@@ -16,8 +18,12 @@ import { Container, Header, Logo, Filters, Shows } from './App.styles';
 
 const wp = new WordPress('https://publishow.000webhostapp.com/wp-json/wp/v2/');
 
-const SHOWS_FILTER = { tags: ['הופעה'] };
-const LECTURES_FILTER = { tags: ['הרצאה'] };
+const FILTERS = {
+  all: undefined,
+  shows: { tags: ['הופעה'] },
+  lectures: { tags: ['הרצאה'] },
+};
+
 const TODAY = new Date();
 
 const AREA_OPTIONS = [
@@ -124,9 +130,9 @@ class App extends PureComponent {
           <Header>
             <Logo />
             <Nav selected={selectedNavItem} onSelect={this.selectNavItem}>
-              <NavItem title="הכול" name="all" filter={null} />
-              <NavItem title="הופעות" name="shows" filter={SHOWS_FILTER} />
-              <NavItem title="הרצאות" name="lectures" filter={LECTURES_FILTER} />
+              <NavItem title="הכול" name="all" />
+              <NavItem title="הופעות" name="shows" />
+              <NavItem title="הרצאות" name="lectures" />
             </Nav>
             <Filters>
               <FilterItem
@@ -169,16 +175,16 @@ class App extends PureComponent {
           </Progress>
           <Shows>
             {shows
-              .filter(matches(selectedNavItem.filter))
+              .filter(matches(FILTERS[selectedNavItem]))
               .map(show => (
                 <Show
                   key={show.id}
-                  image={head(show._embedded['wp:featuredmedia']).source_url}
+                  image={flow([head, get('source_url')])(show._embedded['wp:featuredmedia'])}
                   title={show.title.rendered}
                   location={show.acf.location.address}
                   tags={show.tags}
                   time={Number(show.acf.time)}
-                  entrance={Number(show.acf.entrance)}
+                  entrance={show.acf.entrance && Number(show.acf.entrance)}
                   registrationLink={show.acf.registrationLink}
                 />
               ))}

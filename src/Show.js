@@ -1,4 +1,5 @@
 import React from 'react';
+import { decode } from 'he';
 import {
   Container,
   Image,
@@ -33,13 +34,13 @@ const Show = ({
   registrationLink: string,
 }) => {
   const date = new Date(time);
-  const entranceDate = new Date(entrance);
+  const entranceDate = entrance && new Date(entrance);
   return (
     <Container>
       <Image style={{ backgroundImage: `url(${image})` }} />
       <Content>
         <Details>
-          <h3>{title}</h3>
+          <h3>{decode(title)}</h3>
           <span>{location}</span>
           <Tags>{tags.map(tag => <Tag key={tag}>{tag}</Tag>)}</Tags>
         </Details>
