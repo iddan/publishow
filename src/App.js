@@ -134,7 +134,7 @@ class App extends PureComponent {
               <NavItem title="הופעות" name="shows" />
               <NavItem title="הרצאות" name="lectures" />
             </Nav>
-            <Filters>
+            {/* <Filters>
               <FilterItem
                 type="select"
                 label="אזור"
@@ -168,7 +168,7 @@ class App extends PureComponent {
                 onChange={this.handleFilterChange}
                 options={REQUIRED_REGISTRATION_OPTIONS}
               />
-            </Filters>
+            </Filters> */}
           </Header>
           <Progress loading={loading}>
             <Indeterminate />
