@@ -3,73 +3,17 @@ import { ThemeProvider } from 'styled-components';
 import matches from 'lodash/fp/matches';
 import * as API from './Api';
 import * as theme from './theme';
-// import FilterItem from './FilterItem';
 import Nav from './Nav';
 import NavItem from './NavItem';
 import Show from './Show';
 import { Progress, Indeterminate } from './Progress';
-import { Container, Header, Logo, /* Filters , */ Shows } from './App.styles';
+import { Container, Header, Logo, Shows } from './App.styles';
 
 const FILTERS = {
   all: undefined,
   shows: { tags: ['הופעה'] },
   lectures: { tags: ['הרצאה'] },
 };
-
-// const TODAY = new Date();
-
-// const AREA_OPTIONS = [
-//   {
-//     label: 'כולם',
-//     value: null,
-//   },
-//   {
-//     value: 'tlv',
-//     label: 'תל אביב',
-//   },
-//   {
-//     value: 'north',
-//     label: 'הצפון',
-//   },
-//   {
-//     value: 'south',
-//     label: 'הדרום',
-//   },
-// ];
-
-// const REQUIRED_REGISTRATION_OPTIONS = [
-//   {
-//     label: 'לא בהכרח',
-//     value: null,
-//   },
-//   {
-//     label: 'כן',
-//     value: true,
-//   },
-//   {
-//     label: 'לא',
-//     value: false,
-//   },
-// ];
-
-// const PRICE_OPTIONS = [
-//   {
-//     label: 'כל מחיר',
-//     value: null,
-//   },
-//   {
-//     label: 'חינם',
-//     value: 0,
-//   },
-//   {
-//     label: 'עד 20',
-//     value: 20,
-//   },
-//   {
-//     label: 'עד 50',
-//     value: 50,
-//   },
-// ];
 
 class App extends PureComponent {
   state = {
@@ -86,7 +30,6 @@ class App extends PureComponent {
   async componentDidMount() {
     this.setState({ loading: true });
     const shows = await API.getShows();
-    console.log(shows);
     this.setState({
       loading: false,
       shows,
