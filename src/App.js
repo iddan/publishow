@@ -18,12 +18,6 @@ const FILTERS = {
 class App extends PureComponent {
   state = {
     selectedNavItem: 'all',
-    filters: {
-      area: null,
-      price: null,
-      date: null,
-      requiresRegistration: null,
-    },
     shows: [],
   };
 
@@ -50,7 +44,7 @@ class App extends PureComponent {
   };
 
   render() {
-    const { selectedNavItem, /* filters, */ shows, loading } = this.state;
+    const { selectedNavItem, shows, loading } = this.state;
     return (
       <ThemeProvider theme={theme}>
         <Container>
@@ -61,41 +55,6 @@ class App extends PureComponent {
               <NavItem title="הופעות" name="shows" />
               <NavItem title="הרצאות" name="lectures" />
             </Nav>
-            {/* <Filters>
-              <FilterItem
-                type="select"
-                label="אזור"
-                name="area"
-                value={filters.area}
-                onChange={this.handleFilterChange}
-                options={AREA_OPTIONS}
-              />
-              <FilterItem
-                type="select"
-                label="מחיר"
-                name="price"
-                value={filters.price}
-                onChange={this.handleFilterChange}
-                options={PRICE_OPTIONS}
-              />
-              <FilterItem
-                type="date"
-                label="תאריך"
-                name="date"
-                value={filters.date}
-                onChange={this.handleFilterChange}
-                minDate={TODAY}
-                maxDate={null}
-              />
-              <FilterItem
-                type="select"
-                label="רישום מראש"
-                name="requiresRegistration"
-                value={filters.requiresRegistration}
-                onChange={this.handleFilterChange}
-                options={REQUIRED_REGISTRATION_OPTIONS}
-              />
-            </Filters> */}
           </Header>
           <Progress loading={loading}>
             <Indeterminate />
