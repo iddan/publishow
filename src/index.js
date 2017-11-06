@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import * as Analytics from './analytics';
+import * as Analytics from './services/analytics';
 import registerServiceWorker from './registerServiceWorker';
 import noDoubleZoom from './noDoubleZoom';
 

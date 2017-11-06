@@ -14,7 +14,7 @@ export const Container = styled.div`
   flex-direction: column;
 `;
 
-export const Header = Card.withComponent('header').extend.attrs({ elevation: 1 })`
+export const Header = Card.withComponent('header').extend`
   background: ${({ theme }) => theme.colors.primary};
   color: white;
   overflow: hidden;

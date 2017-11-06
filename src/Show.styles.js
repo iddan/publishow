@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Card from './Card';
 
-export const Container = Card.withComponent('article').extend.attrs({ elevation: 1 })`
+export const Container = Card.withComponent('article').extend`
   width: calc(100% - 32px);
   max-width: 400px;
   padding: 8px;
