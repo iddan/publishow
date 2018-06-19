@@ -13,10 +13,11 @@
     "react-addons-shallow-compare": ">=0.14",
     "react-dom": ">=0.14",
     "react-input-range": "^1.2.1",
-    "react-scripts": "1.0.12",
+    "react-scripts": "1.1.1",
     "shallowequal": "^1.0.2",
     "styled-components": "^2.1.2",
-    "url": "^0.11.0"
+    "url": "^0.11.0",
+    "snyk": "^1.83.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -24,11 +25,14 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "devDependencies": {
     "eslint": "^4.6.0",
     "eslint-config-fbjs-opensource": "^1.0.0",
     "prettier": "^1.6.1"
-  }
+  },
+  "snyk": true
 }
