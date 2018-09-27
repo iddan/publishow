@@ -13,7 +13,7 @@
     "react-addons-shallow-compare": ">=0.14",
     "react-dom": ">=0.14",
     "react-input-range": "^1.2.1",
-    "react-scripts": "1.0.12",
+    "react-scripts": "2.0.0",
     "shallowequal": "^1.0.2",
     "styled-components": "^2.1.2",
     "url": "^0.11.0"
